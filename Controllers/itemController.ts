@@ -78,22 +78,23 @@ export module itemController {
 			return res.status(400).send("Provide at least 1 prop!")
 		try {
 			let foundItem = await Item.findById({ _id: itemId })
-
+			type newItem = {
+				name?: string
+				quantity?: number
+			}
+			let newItem: newItem = {}
 			if (!name) {
 				if (!parseInt(quantity, 10))
 					return res.status(400).send("Quantity must be a number!")
-				await Item.updateOne({ _id: itemId }, { quantity: quantity })
-				return res.send("Succesfully updated item!")
+
+				newItem.quantity = quantity
 			} else if (!quantity) {
-				await Item.updateOne({ _id: itemId }, { name: name })
-				return res.send("Succesfully updated item!")
+				newItem.name = name
 			} else if (quantity && name) {
-				await Item.updateOne(
-					{ _id: itemId },
-					{ name: name, quantity: quantity }
-				)
-				return res.send("Succesfully updated item!")
+				newItem = { name: name, quantity: quantity }
 			}
+			await Item.updateOne({ _id: itemId }, newItem)
+			return res.send("Succesfully updated item!")
 		} catch (err) {
 			logger.error(err)
 			return res.status(400).send("database error")
