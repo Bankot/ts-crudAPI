@@ -1,0 +1,21 @@
+[2022-08-18T21:08:47.908Z] - [ERROR] - Cast to ObjectId failed for value "{ id: '62fea896eee4615cc16d7124' }" (type Object) at path "_id" for model "Item"
+[2022-08-18T21:18:47.722Z] - [ERROR] - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[2022-08-18T21:18:49.419Z] - [ERROR] - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[2022-08-18T21:19:26.292Z] - [ERROR] - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+[2022-08-18T21:21:47.486Z] - [ERROR] - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
